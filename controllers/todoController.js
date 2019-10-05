@@ -1,6 +1,7 @@
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const keys = require("../config/keys");
+const Todo = require("../models/todo-model");
 
 //connect to mongodb
 mongoose.connect(
@@ -13,11 +14,6 @@ mongoose.connect(
     console.log("Connected to mongodb");
   }
 );
-
-const todoSchema = new mongoose.Schema({
-  item: String
-});
-const Todo = mongoose.model("Todo", todoSchema);
 
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
